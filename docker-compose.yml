@@ -2,14 +2,14 @@ version: '3.1'
 
 services:
   springboot:
-    image: dockerhandson/spring-boot-mongo:latest
+    image: praveenpsplt12/spring-boot-mongo-docker:latest
     restart: always # This will be ignored if we deploy in docker swarm
     environment:
     - MONGO_DB_HOSTNAME=mongo
     - MONGO_DB_USERNAME=devdb
     - MONGO_DB_PASSWORD=devdb123
     ports:
-      - 8080:8080
+      - 8082:8080
     working_dir: /opt/app
     depends_on:
       - mongo
@@ -38,8 +38,7 @@ services:
     
 volumes:
   mongodb:
-    external: true
     
 networks:
   springappnetwork:
-    external: true
+    
